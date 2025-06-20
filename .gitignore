@@ -1,0 +1,16 @@
+*.png
+*.ipynb_checkpoints
+*.pyc
+./bin/*
+*.cache
+output/incit-taskset/row_dist.csv
+*row_dist.csv
+*k_dist.csv
+*.pkl
+*.tar.gz
+analysis/csv/*
+bin/*
+*.pdf
+*.html
+*.log
+output/*
