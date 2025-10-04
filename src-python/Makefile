@@ -4,6 +4,7 @@ dataset=$(word 2, $(MAKECMDGOALS))
 
 all: ft features perf-metric sub-matrices k-dist class_feature merge
 
+# Preprocessing execution time in format-thread config
 ft:
 	python3 process_ft.py $(dataset)
 
@@ -21,7 +22,6 @@ k-dist:
 
 class_feature:
 	python3 class_feature.py $(dataset)
-
 
 
 merge:
