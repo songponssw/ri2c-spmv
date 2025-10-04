@@ -2,9 +2,7 @@
 
 
 # Overview
-This repository provides the experiment source code for [Revisiting Matrix Structure Impact on Storage Format SpMV Performance](#).  
-The work evaluates SpMV execution time, matrix features, and matrix layouts, and uses these results for performance analysis.  
-The pipeline begins with input matrices from [SuiteSparse](https://sparse.tamu.edu/) in **Matrix Market format**. The outputs from measures are in CSV format, which are later summarized into a `pickle` format for plotting and analysis.
+This repository provides the experiment source code for [Revisiting Matrix Structure Impact on Storage Format SpMV Performance](#). The work evaluates SpMV execution time, matrix features, and matrix layouts, and uses these results for performance analysis. The pipeline begins with input matrices from [SuiteSparse](https://sparse.tamu.edu/) in **Matrix Market format**. The outputs from measures are in CSV format, which are later summarized into a `pickle` format for plotting and analysis.
 
 
 ```
@@ -19,8 +17,7 @@ The pipeline begins with input matrices from [SuiteSparse](https://sparse.tamu.e
 ---
 ## Collect metrics and data
 ### Extract Files from Matrix Market
-We use the following directory structure to organize matrix datasets.  
-Matrices downloaded from SuiteSparse must include both the *Group* and *Name* properties.  
+We use the following directory structure to organize matrix datasets. Matrices downloaded from SuiteSparse must include both the *Group* and *Name* properties.  
 
 For example, the [Pres_Poisson](https://sparse.tamu.edu/ACUSIM/Pres_Poisson) matrix belongs to the **ACUSIM** group and has the **Pres_Poisson** name.  
 
@@ -57,8 +54,7 @@ make [exectime,exectime_omp,k_dist,...]
 ```
 
 ### Usage (scripts)
-The `scripts/` directory provides helper scripts to run measurements on multiple matrices (datasets).  
-Dataset names are defined in `scripts/mtx-name/{DATASET}.name`, which store the paths to matrices. These paths are passed as arguments when running experiments.  
+The `scripts/` directory provides helper scripts to run measurements on multiple matrices (datasets). Dataset names are defined in `scripts/mtx-name/{DATASET}.name`, which store the paths to matrices. These paths are passed as arguments when running experiments.  
 
 For example, using the dataset name `test2`:  
 ```bash
@@ -68,8 +64,7 @@ make exectime test2
 
 ---
 ## Preprocessing Data
-The preprocessing step converts the raw measured metrics into `.pkl` files.  
-It also performs additional tasks such as classifying matrices by layout, collecting extra feature metrics, and averaging execution time.  
+The preprocessing step converts the raw measured metrics into `.pkl` files. It also performs additional tasks such as classifying matrices by layout, collecting extra feature metrics, and averaging execution time.  
 
 ## File Structure
 ```bash
