@@ -1,14 +1,20 @@
 # Sparse Matrix-Vector Multiplication Analysis Framework
----
-# Overview
 
+
+# Overview
 This repository provides the experiment source code for [Revisiting Matrix Structure Impact on Storage Format SpMV Performance](#).  
 The work evaluates SpMV execution time, matrix features, and matrix layouts, and uses these results for performance analysis.  
 The pipeline begins with input matrices from [SuiteSparse](https://sparse.tamu.edu/) in **Matrix Market format**. The outputs from measures are in CSV format, which are later summarized into a `pickle` format for plotting and analysis.
 
 
 ```
-Pipeline Figures
+[ Input matrix (Matrix market) ]
+        |
+        v
+[ Metric Collection ] -> binaries -> [ output/{DATASET}/*.csv ]
+        |
+        v
+[ Preprocessing ] -> [ *.pkl ] -> plotting & analysis
 ```
 ---
 ## Collect metrics and data
@@ -28,7 +34,7 @@ The `src/` directory contains the code for measuring SpMV.  The measured functio
 ```bash
 ├── scripts
 ├── src
-|   ├── include/
+│   ├── include/       
 │   ├── spmv_kernel/       # target function Implementation 
 │   ├── conversions.c
 │   ├── exectime.c         # Measure execution time in serial impl
@@ -46,7 +52,8 @@ The `src/` directory contains the code for measuring SpMV.  The measured functio
 ### Usage 
 ```bash
 make [exectime,exectime_omp,k_dist,...]
-./bin/run_exectime INPUT_PATH coo
+./bin/run_exectime INPUT_PATH coo 0  # COO serial impl.
+./bin/run_exectime INPUT_PATH coo 8  # COO serial impl.
 ```
 
 ### Usage (scripts)
